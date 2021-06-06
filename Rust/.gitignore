@@ -1,0 +1,18 @@
+# ignore all
+* 
+# unignore dir
+!*/
+
+# unignore extensions 
+!*.rs
+!Cargo.toml
+!Cargo.lock
+!README.md
+!*.gif
+!.gitignore
+
+# ignore
+*.metadata
+.DS_Store
+
+
