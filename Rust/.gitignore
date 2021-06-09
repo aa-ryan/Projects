@@ -2,6 +2,7 @@
 * 
 # unignore dir
 !*/
+target
 
 # unignore extensions 
 !*.rs
