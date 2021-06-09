@@ -3,23 +3,24 @@ extern crate serde;
 extern crate serde_json;
 extern crate sha2;
 
-use self::sha2::{Sha256, Digest}
+use self::sha2::{Sha256, Digest};
 use std::fmt::Write;
 
-#[derive(Debug, Clone, Serialize)]
-struct Transaction {
-    sender: String,
-    receiver: String,
-    amount: f32,
+mod structures;
+
+impl Chain {
+
+    pub fn new(minerAddress: String, difficulty: u32) -> Chain {
+        let mut chain = Chain {
+            chain: Vec::new(),
+            currentTransaction: Vec::new(),
+            difficulty,
+            minerAddress,
+            reward: 100.0,
+        };
+
+        chain.generate_new_block();
+        chain
+    }
+
 }
-
-#[derive(Serialize , Debug)]
-pub struct Blockheader {
-    timestamp: i64,
-    nonce: u32,
-    pre_hash: String,
-    merkle: String,
-    difficulty: u32,
-}
-
-
