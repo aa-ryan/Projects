@@ -68,4 +68,9 @@ impl Chain {
 
         Chain::hash(&block.header)
     }
+
+    pub fn update_difficulty(&mut self, difficulty: u32) -> bool {
+        self.difficulty = difficulty;
+        true
+    }
 }
