@@ -62,7 +62,7 @@ fn new_t(chain: &mut chain::Chain) {
     print!("Enter the receiver address: ");
     io::stdout().flush();
     io::stdin().read_line(&mut receiver);
-    print!("Enter amount");
+    print!("Enter amount: ");
     io::stdout().flush();
     io::stdin().read_line(&mut amount);
 
