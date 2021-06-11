@@ -29,7 +29,7 @@ fn main() {
 
     loop {
         println!("Menu");
-        println!("1) New Transaction\n2) Mine Block\n3) Change Difficulty\n4) Change Reward\n5)Exit");
+        println!("1) New Transaction\n2) Mine Block\n3) Change Difficulty\n4) Change Reward\n5) Exit");
         print!("Enter your choice: ");
         io::stdout().flush();
         choice.clear();
