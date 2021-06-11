@@ -56,10 +56,10 @@ fn new_t(chain: &mut chain::Chain) {
     let mut sender = String::new();
     let mut receiver = String::new();
     let mut amount = String::new();
-    print!("Enter sender address");
+    print!("Enter sender address: ");
     io::stdout().flush();
     io::stdin().read_line(&mut sender);
-    print!("Enter the receiver address");
+    print!("Enter the receiver address: ");
     io::stdout().flush();
     io::stdin().read_line(&mut receiver);
     print!("Enter amount");
