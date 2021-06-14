@@ -18,7 +18,7 @@ public class DateServer
 				{
 					var out = new PrintWriter(socket.getOutputStream(), true);
 					out.println(new Date().toString());
-					System.out.println("Socket");
+					System.out.println("Port Was Accessed");
 				}
 			}
 		}
