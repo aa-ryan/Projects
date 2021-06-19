@@ -7,7 +7,7 @@ import java.util.Date;
 
 public class DateServer 
 {
-	public static void main(String[] args) throws IOException
+	public static void main(String[] args)
 	{
 		try (var listener = new ServerSocket(59090)) 
 		{
@@ -19,8 +19,12 @@ public class DateServer
 					var out = new PrintWriter(socket.getOutputStream(), true);
 					out.println(new Date().toString());
 					System.out.println("Port Was Accessed");
-				}
+				} 
 			}
+		} 
+		catch (IOException e) 
+		{
+			e.printStackTrace();
 		}
 	}
 }
