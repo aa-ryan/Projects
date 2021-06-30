@@ -10,7 +10,7 @@ public class app extends JFrame  {
 	}
 
 	private void initUI() {
-		// Entry point of the game.
+		/* Entry point of the game. */
 		add(new Board());
 
 		setSize(250, 200);
@@ -26,5 +26,5 @@ public class app extends JFrame  {
 			ex.setVisible(true);
 		});
 	}
-	
+
 }
