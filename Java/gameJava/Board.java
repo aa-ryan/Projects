@@ -30,6 +30,7 @@ public class Board extends JPanel
 
 		/*  The ANTIALIASING hint controls whether or not the geometry rendering methods of a Graphics2D object will attempt to reduce aliasing artifacts along the edges of shapes. */
 		/* VALUE_ANTIALIAS_ON -> Antialiasing hint value -- rendering is done with antialiasing. */
+		/* The rendering hints are used to make the drawing smooth. */
 
 		RenderingHints rh = new RenderingHints(RenderingHints.KEY_ANTIALIASING,
 								RenderingHints.VALUE_ANTIALIAS_ON);
@@ -56,6 +57,7 @@ public class Board extends JPanel
 		g2d.setColor(Color.gray);
 
 		for (double deg = 0; deg < 360; deg += 5) {
+			/* An affine transform is a transformation such as translate, rotate, scale, or shear in which parallel lines remain parallel even after being transformed. */
 			AffineTransform at = AffineTransform.getTranslateInstance(w/2 , h/2);
 			at.rotate(Math.toRadians(deg));
 			g2d.draw(at.createTransformedShape(e));
