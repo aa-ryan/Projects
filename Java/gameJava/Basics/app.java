@@ -1,5 +1,3 @@
-package gameJava;
-
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 
