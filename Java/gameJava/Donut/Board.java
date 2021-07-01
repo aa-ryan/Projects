@@ -26,15 +26,15 @@ public class Board extends JPanel
 	{
 		Graphics2D g2d = (Graphics2D) g;
 
-		/*  The ANTIALIASING hint controls whether or not the geometry rendering methods of a Graphics2D object will attempt to reduce aliasing artifacts along the edges of shapes. */
-		/* VALUE_ANTIALIAS_ON -> Antialiasing hint value -- rendering is done with antialiasing. */
-		/* The rendering hints are used to make the drawing smooth. */
+		/*  The ANTIALIASING hint controls whether or not the geometry rendering methods of a Graphics2D object will attempt to reduce aliasing artifacts along the edges of shapes.
+		* VALUE_ANTIALIAS_ON -> Antialiasing hint value -- rendering is done with antialiasing.
+		* The rendering hints are used to make the drawing smooth. */
 
 		RenderingHints rh = new RenderingHints(RenderingHints.KEY_ANTIALIASING,
 								RenderingHints.VALUE_ANTIALIAS_ON);
 
 		/* The RENDERING hint is a general hint that provides a high level recommendation as to whether to bias algorithm choices more for speed or quality when evaluating tradeoffs. This hint could be consulted for any rendering or image manipulation operation, but decisions will usually honor other, more specific hints in preference to this hint.
-		* VALUE_RENDER_QUALITY -> Rendering hint value -- rendering algorithms are chosen with a preference for output quality. */
+		 * VALUE_RENDER_QUALITY -> Rendering hint value -- rendering algorithms are chosen with a preference for output quality. */
 
 		rh.put(RenderingHints.KEY_RENDERING,
 				RenderingHints.VALUE_RENDER_QUALITY);
