@@ -48,7 +48,7 @@ public class Board extends JPanel
 
 
 		/* Constructs and initializes an Ellipse2D from the specified coordinates. */
-		Ellipse2D e = new Ellipse2D.Double(0, 0, 80, 130);
+		Ellipse2D e = new Ellipse2D.Double(0, 0, 100, 150);
 		/* Stroking – is a process of drawing a shape’s outline applying stroke width, line style, and color attribute */
 		g2d.setStroke(new BasicStroke(1));
 		/* A BasicStroke object holds information about the line width, join style, end-cap style, and dash style. This information is used when a Shape is rendered with the draw method. */
