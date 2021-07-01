@@ -10,13 +10,13 @@ import java.awt.geom.AffineTransform;
 import java.awt.geom.Ellipse2D;
 import javax.swing.JPanel;
 
-public class Board extends JPanel 
+public class Board extends JPanel
 {
 
 	@Override
-	public void paintComponent(Graphics g) 
+	public void paintComponent(Graphics g)
 	{
-		/* It prints the component as if you hadn't overridden the paintComponent method. 
+		/* It prints the component as if you hadn't overridden the paintComponent method.
 		 * If you have a background color set for instance, this is typically painted by the class you're extending. */
 		super.paintComponent(g);
 
@@ -24,14 +24,14 @@ public class Board extends JPanel
 
 	}
 
-	private void drawDonut(Graphics g) 
+	private void drawDonut(Graphics g)
 	{
 		Graphics2D g2d = (Graphics2D) g;
 
 		/*  The ANTIALIASING hint controls whether or not the geometry rendering methods of a Graphics2D object will attempt to reduce aliasing artifacts along the edges of shapes. */
 		/* VALUE_ANTIALIAS_ON -> Antialiasing hint value -- rendering is done with antialiasing. */
 
-		RenderingHints rh = new RenderingHints(RenderingHints.KEY_ANTIALIASING,    
+		RenderingHints rh = new RenderingHints(RenderingHints.KEY_ANTIALIASING,
 								RenderingHints.VALUE_ANTIALIAS_ON);
 
 		/* The RENDERING hint is a general hint that provides a high level recommendation as to whether to bias algorithm choices more for speed or quality when evaluating tradeoffs. This hint could be consulted for any rendering or image manipulation operation, but decisions will usually honor other, more specific hints in preference to this hint.
@@ -41,7 +41,7 @@ public class Board extends JPanel
 				RenderingHints.VALUE_RENDER_QUALITY);
 
 		g2d.setRenderingHints(rh);
-		
+
 		Dimension size = getSize();
 		double w = size.getWidth();
 		double h = size.getHeight();
@@ -49,7 +49,7 @@ public class Board extends JPanel
 
 
 		/* Constructs and initializes an Ellipse2D from the specified coordinates. */
-		Ellipse2D e = new Ellipse2D.Double(0, 0, 80, 130);   		
+		Ellipse2D e = new Ellipse2D.Double(0, 0, 80, 130);
 		/* Stroking – is a process of drawing a shape’s outline applying stroke width, line style, and color attribute */
 		g2d.setStroke(new BasicStroke(1));
 		/* A BasicStroke object holds information about the line width, join style, end-cap style, and dash style. This information is used when a Shape is rendered with the draw method. */
@@ -63,5 +63,5 @@ public class Board extends JPanel
 		}
 
 	}
-	
+
 }
