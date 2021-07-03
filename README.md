@@ -2,6 +2,7 @@
 
 * Java 
 	- Flappy Bird
+	- Ball Simulation
 
 * Rust
 	- Port Sniffer
