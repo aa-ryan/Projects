@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
 		/* Child code */
 		else if (pid == 0) 
 		{
-			execlp("./Binary" , argv[0], argv[1], argv[2], NULL);
+			execlp("./Copy" , argv[0], argv[1], argv[2], NULL);
 			return EXECLP_ERROR;
 		}
 		else // pid < 0
