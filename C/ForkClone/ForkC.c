@@ -7,7 +7,8 @@
 #include<sys/types.h>
 
 
-int main(int argc, char *argv[])
+int 
+main(int argc, char *argv[])
 {
 	/* Forking process */
 	pid_t pid = fork();
@@ -31,27 +32,27 @@ int main(int argc, char *argv[])
 				printf("HINT: execlp() failed.");
 				printf("Call in bin folder, or enter path for the binary");
 			}
-			else 
-			{
-				printf("Sucess: Child finished normally");
-			}
 			
-			/* Child exit status */
-			return status;
 		}
-
-		/* Child code */
-		else if (pid == 0) 
+		else 
 		{
-			execlp("./Copy" , argv[0], argv[1], argv[2], NULL);
-			return EXECLP_ERROR;
+			printf("Sucess: Child finished normally");
 		}
-		else // pid < 0
-		{
-			printf("ERROR: Unable to fork process");
-			return 1;
-		}
-
+		/* Child exit status */
+		return status;
 	}
+
+	/* Child code */
+	else if (pid == 0) 
+	{
+		execlp("./Copy" , argv[0], argv[1], argv[2], NULL);
+		return EXECLP_ERROR;
+	}
+	else if (pid < 0)
+	{
+		printf("ERROR: Unable to fork process");
+		return 1;
+	}
+
 	return 0;
 }
