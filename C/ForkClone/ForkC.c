@@ -43,12 +43,15 @@ int main(int argc, char *argv[])
 		/* Child code */
 		else if (pid == 0) 
 		{
-			execlp("./")
+			execlp("./Binary" , argv[0], argv[1], argv[2], NULL);
+			return EXECLP_ERROR;
+		}
+		else // pid < 0
+		{
+			printf("ERROR: Unable to fork process");
+			return 1;
 		}
 
 	}
-
-
-
 	return 0;
 }
