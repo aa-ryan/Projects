@@ -28,6 +28,7 @@ public class Balls extends JPanel {
 
 
         super.paintComponent(g);
+        setBackground(Color.pink);
         Graphics2D g2d = (Graphics2D) g.create();
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         for (Ball ball : ballsUp) {
