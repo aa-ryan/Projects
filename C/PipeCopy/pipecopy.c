@@ -57,7 +57,41 @@ int main(int argc, char* argv[]) {
 			/* If status is ok, print success */
 			if (status == 0)
 				printf("Success: Child %d finished normally\n", child_number);
+			else {
+				printf("Error: Child %d finished abnormally with status %d\n", child_number, status);
+				error = true;
+			}
 		}
 
+		if (!error) {
+			printf("Success: All children are terminated normally\n");
+			return 0;
+		} else {
+			printf("Error: One or more child finished normally. Operation failed");
+			return 2;
+		}
+
+	}
+
+	if (c1 == 0) {
+		close(fd[0]);
+		int src = open(argv[1], O_RDONLY);
+		if (src < 0) {
+			printf("ERROR: Unable to open source file \"%s\" \n", argv[1], strerror(errno));
+			close(fd[1]);
+			return 1;
+		}
+
+		if (copy(src, fd[1], 1) < 0) {
+			printf("ERROR: error while copying: %s\n", strerror(errno));
+			close(src);
+			close(fd[1]);
+			return 2;
+		}
+ 
+		/* Closing source */
+		close(src);
+		close(fd[1]);
+		return 0;
 	}
 }
