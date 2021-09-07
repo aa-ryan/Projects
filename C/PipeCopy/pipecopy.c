@@ -1,6 +1,6 @@
 
 #define _POSIX_SOURCE
-#include < stdio.h>
+#include <stdio.h>
 #include <inttypes.h>
 #include <unistd.h>
 #include <sys/wait.h>
@@ -15,14 +15,14 @@
 int16_t copy(int src, int dest, int pid);
 
 int main(int argc, char* argv[]) {
-	int (argc < 3) {
+	if (argc < 3) {
 		printf("ERROR: Too few arguments. Usage: ./PipeCopy src dest \n");
 		return 3;
 	}
 
 	int fd[2];
 	/* Creating pipe */
-	int(pipe(fd)) {
+	if (pipe(fd)) {
 		fprintf(stderr, "Error: Pipe Creation failed.\n");
 		return 1;
 	}
@@ -67,7 +67,7 @@ int main(int argc, char* argv[]) {
 			printf("Success: All children are terminated normally\n");
 			return 0;
 		} else {
-			printf("Error: One or more child finished normally. Operation failed");
+			printf("Error: One or more child finished abnormally. Operation failed");
 			return 2;
 		}
 
@@ -78,7 +78,7 @@ int main(int argc, char* argv[]) {
 		close(fd[0]);
 		int src = open(argv[1], O_RDONLY);
 		if (src < 0) {
-			printf("ERROR: Unable to open source file \"%s\" \n", argv[1], strerror(errno));
+			printf("ERROR: Unable to open source file \"%s\"(%s)\n", argv[1], strerror(errno));
 			close(fd[1]);
 			return 1;
 		}
@@ -128,4 +128,15 @@ int main(int argc, char* argv[]) {
 	return 0;
 }
 
+int16_t copy(int src, int dest, int pid) {
+	// Create buffer and counter
+	uint8_t buffer[BLOCK_SIZE];
+	int16_t read_count = 0;
+	// Copy blocks
+	while((read_count = read(src, buffer, BLOCK_SIZE)) > 0) {
+		printf("[%d] %d bytes copied..\n", pid, read_count);
+		write(dest, buffer, read_count);
+	}
 
+	return read_count;
+}
