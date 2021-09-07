@@ -73,6 +73,7 @@ int main(int argc, char* argv[]) {
 
 	}
 
+	// Code for child - 1
 	if (c1 == 0) {
 		close(fd[0]);
 		int src = open(argv[1], O_RDONLY);
@@ -94,4 +95,37 @@ int main(int argc, char* argv[]) {
 		close(fd[1]);
 		return 0;
 	}
+
+	if (c2 == 0) {
+		close(fd[1]);
+		// Open file pointer for destination and handle error
+		int dest = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
+
+		if (dest < 0) {
+			printf("ERROR: Unable to open destination file \"%s\"(%s)\n", argv[2], strerror(errno));
+			close(fd[0]);
+			return 1;
+		}
+
+		if (copy(fd[0], dest, 2) < 0) {
+			printf("Error: Error while copying: %s\n", strerror(errno));
+			close(dest);
+			close(fd[0]);
+			return 2;
+		}
+		close(dest);
+		close(fd[0]);
+		return 0;
+	}
+
+	// Code for error handling
+	if (c1 < 0 || c2 < 0) {
+		printf("ERROR: Unable to for process!!\n");
+		// If child is already forked
+		return 1;
+	}
+
+	return 0;
 }
+
+
