@@ -34,7 +34,8 @@ int main(int argc, char* argv[]) {
 		c2 = fork();
 	}
 
-	if (c1 > 0) {
+	// parent after forking the child 2
+	if (c2 > 0) {
 		/* Closing both ends of pipe */
 		close(fd[0]);
 		close(fd[1]);
@@ -51,6 +52,7 @@ int main(int argc, char* argv[]) {
 			/* Check which child is done */
 
 			uint8_t child_number = 0;
+
 			if (c1 == done) child_number = 1;
 			else child_number = 2;
 
