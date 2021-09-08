@@ -1,0 +1,6 @@
+Write a C program that creates a new process to cpy the files using Copy binary (previous binary)
+- Specs
+* Spawn a new process using fork system call.
+* Use execlp to execute Copy.
+* Source and execution as command line arguments be passed to execlp as system call arguments.
+* The main process waits for completion of copy operation using wait system call. 
