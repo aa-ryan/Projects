@@ -1,0 +1,6 @@
+Write a C-program that makes a new copy of an existing file using system calls for file manipulation.
+- Specs
+* Source and destination are to be specified in command line arguments.
+* Main function should carry out file opening and closing.
+* A separate copy function needs to be written to do actual copying.
+* Copying can be done in blocks of suitable size.
