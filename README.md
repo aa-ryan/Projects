@@ -18,3 +18,5 @@
 
 * C
 	- Unix "cp" command implementation.
+	- ForkCopy implementation.
+	- PipeCopy implementation.
