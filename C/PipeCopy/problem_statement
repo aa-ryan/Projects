@@ -1,0 +1,5 @@
+Write a C program that forks two processes for one for reading from a file (source file) and other for writing (destination file) into.
+- Specs
+* These two programs communicated using pipe system call.
+* Again the problem accomplishes copying files, the names of which are specified as command-line arguments.
+
