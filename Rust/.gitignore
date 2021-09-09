@@ -11,6 +11,7 @@ target
 !README.md
 !*.gif
 !.gitignore
+!rust-toolchain
 
 # ignore
 *.metadata
