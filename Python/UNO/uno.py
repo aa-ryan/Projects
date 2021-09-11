@@ -50,7 +50,7 @@ class Player():
         """Return the players hand, in color"""
         h = ""
         for card in self.hand:
-            h += "|" + colorize_card(card) + "|"
+            h += "||" + colorize_card(card) + "||"
 
         return h
 
@@ -81,5 +81,20 @@ def colorize_card(card):
 
     if card[0:1] == "G" or card[4:5] == "G":
         colored_card = Back.GREEN + Fore.BLACK + card + Fore.RESET + Back.RESET
+
+    if card[0:1] == "B" or card[4:5] == "B":
+        colored_card = Back.BLUE + Fore.WHITE + card + Fore.RESET + Back.RESET
+
+    if card[0:1] == "Y" or card[4:5] == "Y":
+        colored_card = Back.YELLOW + Fore.YELLOW + card + Fore.RESET + Back.RESET
+
+    if card[0:1] == "W" and len(card) == 4:
+        colored_card = Back.RED + Fore.WHITE + card[0:1] \
+            + Back.GREEN + Fore.BLACK + card[1:2] \
+            + Back.BLUE + Fore.WHITE + card[2:3] \
+            + Back.YELLOW + Fore.BLACK + card[3:4] \
+            + Fore.RESET + Back.RESET
+
+    return colored_card
 
 
