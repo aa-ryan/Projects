@@ -97,4 +97,30 @@ def colorize_card(card):
 
     return colored_card
 
+def build_deck():
+    """Builds and returns a standard 108-card UNO deck"""
 
+    # wild cards
+    deck = ["WILD", "WILD", "WILD", "WILD", "W-D4", "W-D4", "W-D4", "W-D4"]
+
+    #RED cards
+    deck += ["R" + str(n) for n in range(10)]
+    deck += ["R" + str(n) for n in range(1, 10)]
+    deck += ["RSKP", "RSKP", "R-D2", "R-D2", "RREV", "RREV"]
+
+    # GREEN cards
+    deck += ["G" + str(n) for n in range(10)]
+    deck += ["G" + str(n) for n in range(1, 10)]
+    deck += ["GSKP", "GSKP", "G-D2", "G-D2", "GREV", "GREV"]
+
+    # Blue cards
+    deck += ["B" + str(n) for n in range(10)]
+    deck += ["B" + str(n) for n in range(1, 10)]
+    deck += ["BSKP", "BSKP", "B-D2", "B-D2", "BREV", "BREV"]
+
+    #YELLOW cards
+    deck += ["Y" + str(n) for n in range(10)]
+    deck += ["Y" + str(n) for n in range(1, 10)]
+    deck += ["YSKP", "YSKP", "Y-D2", "Y-D2", "YREV", "YREV"]
+
+    return deck
