@@ -124,3 +124,12 @@ def build_deck():
     deck += ["YSKP", "YSKP", "Y-D2", "Y-D2", "YREV", "YREV"]
 
     return deck
+
+def shuffle_deck(deck):
+    """Shuffles and returns deck"""
+
+    # Shuffle atleast 3 and no more than 10 times
+    for _ in range(random.randint(3, 10)):
+        random.shuffle(deck)
+
+    return deck
