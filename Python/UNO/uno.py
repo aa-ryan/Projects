@@ -133,3 +133,20 @@ def shuffle_deck(deck):
         random.shuffle(deck)
 
     return deck
+
+def draw_from_deck(deck, discard_deck):
+    """Draws (pops) a card from the deck and returns it
+        Also reshuffles the deck if needed
+    """
+    # Reshuffle discard deck if main deck is empty
+    if len(deck) == 0:
+        print(Fore.YELLOW + "Reshuffling the discard deck since the main deck is empty..." + Fore.RESET)
+        top_card = discard_deck.pop();
+        deck = shuffle_deck(discard_deck)
+        discard_deck = []
+        discard_deck.append(top_card)
+        card = deck.pop()
+    else:
+        card = deck.pop()
+
+    return card, deck, discard_deck
