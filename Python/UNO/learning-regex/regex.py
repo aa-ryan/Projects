@@ -86,6 +86,8 @@ wlst = re.findall(r"https?://[^\"]*", contents)
 for i,j,k in zip(plst[::2], elst, wlst):
     print(str(i) + "->" + str(j) + "\nURL: " + str(k))
 
+# findall -> just returns matches as list of string, if it's matching groups it will only return group.
+# if multiple group it will return them as tuple, will not check when group is terminated
 # for email
 # for l in elst:
 #     print(l)
@@ -93,7 +95,7 @@ for i,j,k in zip(plst[::2], elst, wlst):
 # matches = pattern.finditer(contents)
 
 # for match in matches:
-    # print(match)
+    # print(match.group(0)) # group can be 0 -> whole match and 1, 2, 3 are left to right numbering of groups().
     # span is the indexes of pattern matched in o/p
 
 
