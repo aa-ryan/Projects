@@ -82,7 +82,7 @@ with open("us-500.csv", "r") as f:
 plst = re.findall(r"\d{3}-\d{3}-\d{4}", contents) # phone number better with quantifiers
 elst = re.findall("[a-zA-Z0-9+._-]+@[a-zA-Z0-9._-]+\\.[a-zA-Z0-9_-]+", contents)
 # wlst = re.findall(r"https?://www\.\w+\.\w+", contents)
-wlst = re.findall(r"(?<=http://)[^\"]*", contents)
+wlst = re.findall(r"https?://[^\"]*", contents)
 for i,j,k in zip(plst[::2], elst, wlst):
     print(str(i) + "->" + str(j) + "\nURL: " + str(k))
 
