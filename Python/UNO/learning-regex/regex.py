@@ -79,6 +79,16 @@ with open("us-500.csv", "r") as f:
 
 
 # pattern = re.compile(r"[89]\d\d-\d\d\d-\d\d\d\d") # phone number starting with 8 and 9
+plst = re.findall(r"\d{3}-\d{3}-\d{4}", contents) # phone number better with quantifiers
+elst = re.findall("[a-zA-Z0-9+._-]+@[a-zA-Z0-9._-]+\\.[a-zA-Z0-9_-]+", contents)
+# wlst = re.findall(r"https?://www\.\w+\.\w+", contents)
+wlst = re.findall(r"(?<=http://)[^\"]*", contents)
+for i,j,k in zip(plst[::2], elst, wlst):
+    print(str(i) + "->" + str(j) + "\nURL: " + str(k))
+
+# for email
+# for l in elst:
+#     print(l)
 
 # matches = pattern.finditer(contents)
 
@@ -87,7 +97,10 @@ with open("us-500.csv", "r") as f:
     # span is the indexes of pattern matched in o/p
 
 
-# for email
-lst = re.findall("[a-zA-Z0-9+._-]+@[a-zA-Z0-9._-]+\\.[a-zA-Z0-9_-]+", contents)
-for l in lst:
-    print(l)
+# Quantifiers
+# * -  0 or more
+# + -  1 or more
+# ? -  0 or One
+# {3} - Exact number
+# {3, 4} - Range of number (minimum, maximum)
+
