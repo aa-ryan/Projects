@@ -150,3 +150,10 @@ def draw_from_deck(deck, discard_deck):
         card = deck.pop()
 
     return card, deck, discard_deck
+
+def valid_start_card(card):
+    """Checks the card passed to see if it is a valid game start card"""
+    if re.search("^[SRI-]", card[1:2]):
+        return False
+    else:
+        return True
