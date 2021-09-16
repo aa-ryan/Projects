@@ -157,3 +157,27 @@ def valid_start_card(card):
         return False
     else:
         return True
+
+
+def check_played_card(card, discard_card):
+    """Checks the card passed against the active discard card to determine if play is valid"""
+
+    # Wild cards are always valid, as long as they picked the color
+    if card[0:1] == "W" and re.search("^[RGBY]", card[4:5]):
+        return True
+
+    # Check the color. matches are valid
+    if card[0:1] == discard_card[0:1]:
+        return True
+
+    # Check card against discarded wild card
+    if card[0:1] == discard_card[4:5]:
+        return True
+
+    # Check the number/action. Matches are valid
+    if card[1:2] == discard_card[1:2]:
+        return True
+
+    return False
+
+
