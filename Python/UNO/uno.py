@@ -180,4 +180,14 @@ def check_played_card(card, discard_card):
 
     return False
 
+def autoplay(hand, discard_card, draw1_status):
+    """Picks a card from the players hand that will make a valid play"""
+    # Build list of eligible cards, and randomly pick one from it
+    elig_cards = []
+    wild_cards = []
 
+    # Count up the colors in hand, in case we play a wild
+    colors = {"R": 0, "G": 0, "B": 0, "Y":0}
+    for c in hand:
+        if re.search("^[RGBY]", c[0:1]):
+            colors[c[0:1]] += 1
